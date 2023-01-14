@@ -8,8 +8,11 @@ edition = "2021"
 [dependencies]
 env_logger = "0.10.0"
 log = "0.4.17"
-macroquad = "0.3.25"
-macroquad-tiled = "0.1.1"
+
+macroquad = "=0.3.7"
+macroquad-platformer = "=0.1.1"
+miniquad = "=0.3.0-alpha.37"
+macroquad-tiled = "=0.1.1"
 
 [[bin]]
 name = "cam"
