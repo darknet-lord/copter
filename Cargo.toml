@@ -13,12 +13,3 @@ macroquad = "=0.3.7"
 macroquad-platformer = "=0.1.1"
 miniquad = "=0.3.0-alpha.37"
 macroquad-tiled = "=0.1.1"
-
-[[bin]]
-name = "cam"
-path = "src/cam.rs"
-
-
-[[bin]]
-name = "main"
-path = "src/main.rs"
