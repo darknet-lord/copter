@@ -15,8 +15,8 @@ const MOVE_SPEED: f32 = 10.0;
 pub struct Player {
     collider: Actor,
     speed: Vec2,
-    pos: Vec2,
     flip: bool,
+    pos: Vec2,
 }
 
 impl Player {
@@ -28,6 +28,15 @@ impl Player {
             speed: vec2(0., 0.),
             flip: true,
         }
+    }
+    
+    pub fn get_pos(&self) -> Vec2 {
+        self.pos
+    }
+
+
+    pub fn set_pos(&mut self, pos: &Vec2) {
+        self.pos = *pos;
     }
 }
 
@@ -63,6 +72,8 @@ impl scene::Node for Player {
     fn update(mut node: RefMut<Self>) {
         let world = &mut storage::get_mut::<Resources>().collision_world;
         let pos = world.actor_pos(node.collider);
+
+        node.set_pos(&pos);
 
         let collides_top = world.collide_check(node.collider, pos + vec2(0., -1.));
         let collides_bottom = world.collide_check(node.collider, pos + vec2(0., 1.));
