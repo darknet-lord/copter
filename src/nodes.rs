@@ -1,7 +1,7 @@
 mod player;
-mod bullet;
+mod bullets;
 mod camera;
 
 pub use player::Player;
-pub use bullet::Bullet;
+pub use bullets::Bullets;
 pub use camera::Camera;

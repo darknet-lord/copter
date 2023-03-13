@@ -12,6 +12,7 @@ use macroquad_platformer::World as CollisionWorld;
 mod nodes;
 use nodes::Player;
 use nodes::Camera;
+use nodes::Bullets;
 
 
 pub struct BackgroundLayer {}
@@ -145,7 +146,8 @@ async fn main() {
     scene::add_node(BackgroundLayer::new());
     scene::add_node(Terrain::new());
     let player = scene::add_node(Player::new());
-    scene::add_node(Camera::new(Rect::new(0.0, 0.0, 300.0, 300.0), 400.0, player));
+    scene::add_node(Bullets::new(player));
+    scene::add_node(Camera::new(Rect::new(0.0, 0.0, 400.0, 400.0), 700.0, player));
 
     loop {
         clear_background(WHITE);

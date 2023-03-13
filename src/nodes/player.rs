@@ -7,7 +7,6 @@ use macroquad::{
 };
 use macroquad_platformer::Actor;
 use crate::{Resources};
-use crate::nodes;
 
 
 const MOVE_SPEED: f32 = 10.0;
@@ -115,12 +114,8 @@ impl scene::Node for Player {
         }
 
         if is_key_pressed(KeyCode::Space) {
-            if node.flip {
-                scene::add_node(nodes::Bullet::new(pos.x + 100.0, pos.y + 30.0, node.flip));
-            } else {
-                scene::add_node(nodes::Bullet::new(pos.x - 10.0, pos.y + 30.0, node.flip));
-
-            }
+            let mut bullets = scene::find_node_by_type::<crate::nodes::Bullets>().unwrap();
+            bullets.spawn_bullet(node.pos, node.flip);
         }
 
         world.move_h(node.collider, node.speed.x * get_frame_time());
