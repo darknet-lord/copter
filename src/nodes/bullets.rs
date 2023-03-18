@@ -71,9 +71,8 @@ impl scene::Node for Bullets {
                 .contains(bullet.pos);
 
             if self_damaged {
-                // let direction = bullet.pos.x > (player.get_pos().x + 10.);
-                // TODO: fix kill
-                // player.kill(direction);
+                let direction = bullet.pos.x > (player.get_pos().x + 10.);
+                player.kill(direction);
             }
 
             if resources.collision_world.solid_at(bullet.pos) || self_damaged {
